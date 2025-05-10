@@ -17,7 +17,6 @@
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
         .insta-post {
@@ -26,7 +25,23 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.05);
         }
-        @media (max-width: 600px) {
+
+        /* 3 columns for 14" MacBook screens (approx 1440px and above) */
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* 2 columns for medium tablets/small laptops */
+        @media (min-width: 600px) and (max-width: 1023px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 1 column for phones */
+        @media (max-width: 599px) {
             .grid {
                 grid-template-columns: 1fr;
             }
